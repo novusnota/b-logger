@@ -1,0 +1,39 @@
+{
+    "manifest_version": 2,
+
+    "name": "b-logger",
+    "description": "Browser extension to log your search history in the past 24 hours and appends it to a file.",
+    "version": "1.0",
+    "default_locale": "en",
+
+    "icons": {
+        "128": "img/icon.png"
+    },
+
+    "permissions": [
+        "activeTab",
+        "storage",
+        "history",
+        "http://*/*",
+        "https://*/*"
+    ],
+
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self';",
+
+    "USELESS-content_scripts-PARAM": [
+        {
+            "matches": ["https://example.com/*"],
+            "js": [
+                "js/main.js"
+            ],
+            "run_at": "document_end"
+        }
+    ],
+
+    "USELESS-browser_action-PARAM": {
+        "default_icon": "img/icon.png",
+        "default_title": "__MSG_extName__",
+        "default_popup": "dist/popup.html"
+    }
+}
+
